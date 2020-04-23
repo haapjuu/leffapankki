@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Movie</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Edit Movie</h1>
+	
+	<h1>Movie</h1>
+	<form action="#" th:action="@{/save}" method="post">
+	<input type="hidden" th:field="${movie.id}" />
+	<p>Title: <input type="text" th:field="${movie.title}" /></p>
+	<select id="clist" th:field="${movie.category}" class="form-control">
+		<option th:each="category : ${categories}" th:value="${category.cid}" th:text="${category.name}"></option>
+	</select>
+	<p>Year: <input type="text" th:field="${movie.year}" /></p>
+	<p>Rating: <input type="text" th:field="${movie.rating}" /></p>
+	<input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+	</form>
+    
+</body>
+</html>
